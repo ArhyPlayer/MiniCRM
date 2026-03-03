@@ -1,0 +1,24 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: mini_crm_api
+    ports:
+      - "${CRM_PORT:-8000}:8000"
+    volumes:
+      # Монтируем весь проект внутрь контейнера.
+      # Любое изменение .py файла в backend/ сразу подхватывается watchfiles → uvicorn reload.
+      - .:/app
+      # Изолируем __pycache__ контейнера от хост-машины
+      - /app/__pycache__
+      - /app/backend/__pycache__
+    environment:
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUNBUFFERED: "1"
+      CRM_HOST: "0.0.0.0"
+      CRM_PORT: "8000"
+      # База данных сохраняется в примонтированном /app → файл появится в корне проекта
+      CRM_DB_PATH: "/app/data/crm.db"
+    # Перезапускать контейнер только при явном падении, не при успешном выходе
+    restart: on-failure

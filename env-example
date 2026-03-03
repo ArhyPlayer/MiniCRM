@@ -1,2 +1,29 @@
+# =============================================================================
+# Сервисный аккаунт (GoogleDriveClient / GoogleSheetsClient)
+# =============================================================================
+
+# Путь к JSON-ключу сервисного аккаунта Google Cloud.
+# Скачивается в Google Cloud Console → IAM → Сервисные аккаунты → Ключи.
 GOOGLE_CREDENTIALS_PATH=excel-factory-488906-cd544edd406e.json
+
+# ID Google Таблицы — часть URL между /d/ и /edit:
+# https://docs.google.com/spreadsheets/d/<ID>/edit
 GOOGLE_SPREADSHEET_ID=your_spreadsheet_id_here
+
+# =============================================================================
+# OAuth2 / личный аккаунт пользователя (GoogleDriveOAuthClient)
+# =============================================================================
+
+# Путь к client_secret_*.json (тип «installed»).
+# Скачивается в Google Cloud Console → API и сервисы → Учётные данные →
+# OAuth 2.0 → скачать JSON.
+GOOGLE_OAUTH_CLIENT_SECRET=client_secret_353987013951-dm6ap9v6tvf1hg8i6d3siravbehlfkbh.apps.googleusercontent.com.json
+
+# Файл для хранения токена пользователя после первой авторизации.
+# Создаётся автоматически; не добавляйте его в git (.gitignore).
+GOOGLE_OAUTH_TOKEN_PATH=token_drive.json
+
+# (Опционально) ID папки Google Drive, в которой будут создаваться файлы
+# по умолчанию. Берётся из URL папки:
+# https://drive.google.com/drive/folders/<FOLDER_ID>
+# GOOGLE_DRIVE_FOLDER_ID=your_folder_id_here

@@ -1,4 +1,13 @@
+# Integration with Google Drive and Google Sheets
 google-api-python-client
 google-auth
 google-auth-httplib2
+google-auth-oauthlib
 python-dotenv
+
+# CRM
+fastapi
+uvicorn[standard]
+pydantic>=2.0
+requests
+watchfiles

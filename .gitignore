@@ -20,9 +20,16 @@ eggs/
 # Secrets — не коммитить!
 .env
 
-# JSON-ключи сервисного аккаунта (содержат private key)
+# Вся папка с ключами Google
+credentials/
+
+# JSON-ключи (на случай хранения в корне)
 excel-factory-*.json
 *-credentials*.json
+client_secret_*.json
+token_drive.json
+token_*.json
+service_account*.json
 
 # IDE
 .idea/
@@ -34,6 +41,14 @@ excel-factory-*.json
 .pytest_cache/
 .coverage
 htmlcov/
+
+# SQLite
+data/*.db
+data/*.db-shm
+data/*.db-wal
+
+# Настройки Google (содержат пути к ключам)
+data/google_settings.json
 
 # OS
 .DS_Store
